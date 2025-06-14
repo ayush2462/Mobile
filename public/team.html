@@ -1,51 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Check Status</title>
-    <!-- <link rel="stylesheet" href="light-login.css" /> -->
-    <link rel="stylesheet" href="dark-login.css" />
-  </head>
-  <body>
-    <div class="page">
-      <div class="top-image">
-        <img src="/public/assets/banner.jpg" alt="Landscape" />
-      </div>
 
-      <div class="form-container">
-        <form class="form" method="post" action="/submit-entry">
+<head>
+  <meta charset="UTF-8" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Check Status</title>
+  <!-- <link rel="stylesheet" href="light-login.css" /> -->
+  <link rel="stylesheet" href="/public/style.css" />
+</head>
 
-          <!-- USER BOX -->
-          <div class="inp">
-            <i class="bx bxs-user"></i>
-            <input type="text" placeholder="Your Name" name="name" required />
-          </div>
-          <!-- PHONE BOX -->
-          <div class="inp">
-            <i class="bx bxs-phone"></i>
-            <input
-              type="tel"
-              placeholder="Phone Number"
-              maxlength="10"
-              name="phone"
-              required
-            />
-          </div>
-          <!-- RADIO BOX -->
-          <div class="radio-group">
-            <label><input type="radio" name="status" value="Trusted" required />Trusted</label>
-            <label><input type="radio" name="status" value="Fraud" /> Fraud</label>
-            <label><input type="radio" name="status" value="Blacklisted" />Blacklisted</label>
-          </div>
-
-          <button type="submit" style="text-transform:uppercase;">Enter data Status</button>
-        </form>
-      </div>
+<body>
+  <div class="page">
+    <div class="top-image">
+      <img src="/public/assets/banner.jpg" alt="Landscape" />
     </div>
-  </body>
+
+    <div class="form-container">
+      <form class="form" method="post" action="/submit-entry">
+
+        <!-- USER BOX -->
+        <div class="inp">
+          <i class="bx bxs-user"></i>
+          <input type="text" placeholder="Your Name" name="name" required />
+        </div>
+        <!-- PHONE BOX -->
+        <div class="inp">
+          <i class="bx bxs-phone"></i>
+          <input type="tel" placeholder="Phone Number" maxlength="10" name="phone" required />
+        </div>
+        <!-- RADIO BOX -->
+        <div class="radio-group">
+          <label><input type="radio" name="status" value="Trusted" required />Trusted</label>
+          <label><input type="radio" name="status" value="Fraud" /> Fraud</label>
+          <label><input type="radio" name="status" value="Blacklisted" />Blacklisted</label>
+        </div>
+
+        <button type="submit" style="text-transform:uppercase;">Enter data Status</button>
+      </form>
+    </div>
+  </div>
+</body>
+
 </html>
