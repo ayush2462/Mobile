@@ -8,10 +8,10 @@ const port = 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'user-login.html'));
+  res.sendFile(path.join(__dirname, 'public', 'user.html'));
 });
 app.get('/dev', (req, res) =>{
-  res.sendFile(path.join(__dirname, 'public', 'data-entry.html'));
+  res.sendFile(path.join(__dirname, 'public', 'team.html'));
 });
 
 app.use(bodyParser.urlencoded({ extended: true }));
