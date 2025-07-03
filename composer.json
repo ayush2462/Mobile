@@ -1,0 +1,17 @@
+{
+    "name": "ayush/mobile",
+    "autoload": {
+        "psr-4": {
+            "Ayush\\Ayush\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ayush",
+            "email": "av6308151@gmail.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^4.4"
+    }
+}
