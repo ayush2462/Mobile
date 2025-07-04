@@ -1,28 +1,29 @@
-/* status.css - Compact, No-Scroll Version */
+/* status.css - Compact, No-Scroll, Non-Responsive Version */
 
 /* Reset & Base */
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-html, body {
-    height: 100%;
-    width: 100vw;
-    overflow: hidden;
+html,
+body {
+  height: 100%;
+  width: 100vw;
+  overflow: hidden;
 }
 
 body {
-    font-family: "Inter", "Segoe UI", Arial, sans-serif;
-    background: linear-gradient(120deg, #f5f7fa 0%, #c3cfe2 100%);
-    color: #222;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(120deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 /* Headings */
@@ -45,20 +46,20 @@ h3 {
 
 /* Card Styles */
 .card {
-background: rgba(255, 255, 255, 0.98);
-border-radius: 22px;
-box-shadow: 0 8px 40px rgba(44, 62, 80, 0.13),
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 22px;
+  box-shadow: 0 8px 40px rgba(44, 62, 80, 0.13),
     0 3px 12px rgba(44, 62, 80, 0.08);
-padding: 44px 52px 36px 52px;
-margin: 32px 0;
-width: 100%;
-max-width: 560px;
-position: relative;
-transition: box-shadow 0.22s, transform 0.18s;
-backdrop-filter: blur(2px);
-border: 1px solid #e6eaf1;
-animation: fadeInCard 0.5s;
-font-size: 1.20rem;
+  padding: 44px 52px 36px 52px;
+  margin: 32px 0;
+  width: 100%;
+  max-width: 560px;
+  position: relative;
+  transition: box-shadow 0.22s, transform 0.18s;
+  backdrop-filter: blur(2px);
+  border: 1px solid #e6eaf1;
+  animation: fadeInCard 0.5s;
+  font-size: 1.2rem;
 }
 
 @keyframes fadeInCard {
@@ -111,48 +112,39 @@ font-size: 1.20rem;
 }
 
 /* Status Styles */
-.status-trusted {
-  color: #219150;
-  background: linear-gradient(90deg, #eafaf1 60%, #d6f5e3 100%);
+.status-trusted,
+.status-fraud,
+.status-blacklisted,
+.status-unknown {
   padding: 3px 14px;
   border-radius: 10px;
   font-weight: 700;
   letter-spacing: 0.5px;
-  box-shadow: 0 1px 4px rgba(33, 145, 80, 0.07);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.status-trusted {
+  color: #219150;
+  background: linear-gradient(90deg, #eafaf1 60%, #d6f5e3 100%);
 }
 
 .status-fraud {
   color: #e74c3c;
   background: linear-gradient(90deg, #fdeaea 60%, #f9d6d6 100%);
-  padding: 3px 14px;
-  border-radius: 10px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  box-shadow: 0 1px 4px rgba(231, 76, 60, 0.07);
 }
 
 .status-blacklisted {
   color: #c0392b;
   background: linear-gradient(90deg, #fbeeea 60%, #f7d6c6 100%);
-  padding: 3px 14px;
-  border-radius: 10px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  box-shadow: 0 1px 4px rgba(192, 57, 43, 0.07);
 }
 
 .status-unknown {
   color: #888;
   background: linear-gradient(90deg, #f3f3f3 60%, #e0e0e0 100%);
-  padding: 3px 14px;
-  border-radius: 10px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  box-shadow: 0 1px 4px rgba(136, 136, 136, 0.07);
 }
 
 .status-blink {
-  animation: blink 1.2s linear infinite alternate;
+  animation: blink 0.3s linear infinite alternate;
 }
 
 @keyframes blink {
@@ -175,7 +167,6 @@ font-size: 1.20rem;
 
 .review-row p {
   font-size: 1.12rem;
-  color: #1a2233;
   background: linear-gradient(90deg, #f6f8fa 60%, #e9eef3 100%);
   border-radius: 10px;
   padding: 8px 18px;
@@ -184,13 +175,14 @@ font-size: 1.20rem;
   font-weight: 500;
   box-shadow: 0 1px 3px rgba(44, 62, 80, 0.04);
   transition: background 0.18s;
-  margin-bottom: 6px;
+  color: #1a2233;
 }
 
 /* Review Actions */
 .review-actions {
   margin: 20px 0 0 0;
   text-align: center;
+  animation: fadeIn 0.7s 0.2s backwards;
 }
 
 .review-actions h3 {
@@ -242,27 +234,34 @@ font-size: 1.20rem;
   margin-top: 14px;
   text-align: center;
   font-weight: 600;
+  animation: pulseBtn 2.2s infinite;
 }
 
-.whatsapp-link:hover,
-.whatsapp-link:focus {
-  background: linear-gradient(90deg, #128c7e 70%, #25d366 100%);
-  transform: translateY(-2px) scale(1.04);
+@keyframes pulseBtn {
+  0% {
+    box-shadow: 0 0 0 0 #25d36644;
+  }
+  70% {
+    box-shadow: 0 0 0 10px #25d36611;
+  }
+  100% {
+    box-shadow: 0 0 0 0 #25d36644;
+  }
 }
 
-/* Modal Styles */
+/* Modal */
 .modal-overlay {
   display: none;
   position: fixed;
   z-index: 1000;
-  left: 0;
   top: 0;
+  left: 0;
   right: 0;
   bottom: 0;
   background: rgba(44, 62, 80, 0.22);
   justify-content: center;
   align-items: center;
-  animation: fadeInModalBg 0.3s;
+  animation: fadeInModalBg 0.3s ease-out;
 }
 
 @keyframes fadeInModalBg {
@@ -276,19 +275,36 @@ font-size: 1.20rem;
 
 .modal {
   background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 12px 40px rgba(44, 62, 80, 0.18);
-  padding: 36px 32px 26px 32px;
-  min-width: 280px;
-  max-width: 98vw;
+  border-radius: 18px;
+  box-shadow: 0 12px 36px rgba(44, 62, 80, 0.2);
+  padding: 36px 30px 28px 30px;
+  min-width: 300px;
+  max-width: 520px;
+  width: 92%;
+  font-size: 1.2rem;
+  line-height: 1.6;
   position: relative;
-  animation: modalIn 0.28s;
+  animation: modalIn 0.25s ease-out;
   border: 1px solid #e6eaf1;
+  max-height: 90vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #25d366 #f6f8fa;
+}
+
+.modal::-webkit-scrollbar {
+  width: 8px;
+  background: #f6f8fa;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background: #25d366;
+  border-radius: 8px;
 }
 
 @keyframes modalIn {
   from {
-    transform: translateY(-40px) scale(0.98);
+    transform: translateY(-40px) scale(0.96);
     opacity: 0;
   }
   to {
@@ -301,28 +317,30 @@ font-size: 1.20rem;
   position: absolute;
   top: 14px;
   right: 18px;
-  font-size: 1.6rem;
-  color: #b0b0b0;
+  font-size: 1.8rem;
+  color: #999;
   cursor: pointer;
-  transition: color 0.2s, background 0.18s, transform 0.14s;
+  transition: color 0.2s, transform 0.2s, background 0.2s;
   border-radius: 50%;
-  padding: 2px 8px;
+  padding: 4px 8px;
 }
 
 .modal-close:hover,
 .modal-close:focus {
   color: #e74c3c;
   background: #fdeaea;
-  transform: scale(1.12);
+  transform: scale(1.1);
 }
 
+/* Review Form */
 #reviewForm label {
-  font-size: 1.08rem;
-  margin-right: 22px;
+  font-size: 1.2rem;
+  margin-right: 20px;
   cursor: pointer;
-  padding: 2px 6px;
+  padding: 4px 8px;
   border-radius: 6px;
-  transition: background 0.15s;
+  transition: background 0.15s ease;
+  display: inline-block;
 }
 
 #reviewForm label:hover,
@@ -333,128 +351,10 @@ font-size: 1.20rem;
 #reviewForm input[type="radio"] {
   accent-color: #219150;
   margin-right: 8px;
-  transform: scale(1.15);
+  transform: scale(1.2);
 }
 
-/* Add subtle fade-in for all elements */
-@media (prefers-reduced-motion: no-preference) {
-  body,
-  .card,
-  .modal,
-  .modal-overlay {
-    animation: fadeIn 0.5s;
-  }
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-}
-
-/* Responsive Design */
-@media (max-width: 700px) {
-  body {
-    padding: 14px 0;
-  }
-  .card {
-    padding: 18px 6vw 16px 6vw;
-    max-width: 99vw;
-  }
-  .modal {
-    padding: 18px 6vw 16px 6vw;
-    min-width: 0;
-  }
-  h1 {
-    font-size: 1.5rem;
-  }
-  h3 {
-    font-size: 1.08rem;
-  }
-  .review-row p {
-    font-size: 1rem;
-    padding: 7px 6px;
-  }
-}
-
-@media (max-width: 430px) {
-  .card,
-  .modal {
-    padding: 12px 2vw 10px 2vw;
-  }
-  h1 {
-    font-size: 1.1rem;
-  }
-}
-
-/* Accessibility: focus styles */
-a:focus,
-button:focus,
-.modal-close:focus,
-.yes-btn:focus,
-.no-btn:focus,
-.whatsapp-link:focus {
-  outline: 2px solid #219150;
-  outline-offset: 2px;
-}
-
-/* Extra Functionalities */
-
-/* Card shadow on focus for keyboard navigation */
-.card:focus-within {
-  box-shadow: 0 0 0 3px #25d36655, 0 12px 40px rgba(44, 62, 80, 0.17);
-}
-
-/* Subtle hover effect for review summary */
-.review-row p:hover {
-  background: linear-gradient(90deg, #e9eef3 60%, #f6f8fa 100%);
-  color: #219150;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(33, 145, 80, 0.07);
-  transition: background 0.18s, color 0.18s;
-}
-
-/* Add a fade-in animation for modal overlay */
-.modal-overlay[style*="display: flex"] {
-  animation: fadeInModalBg 0.3s;
-}
-
-/* Add scrollbar styling for modal (if needed) */
-.modal {
-  max-height: 90vh;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #25d366 #f6f8fa;
-}
-
-.modal::-webkit-scrollbar {
-  width: 8px;
-  background: #f6f8fa;
-}
-.modal::-webkit-scrollbar-thumb {
-  background: #25d366;
-  border-radius: 8px;
-}
-
-/* Add a subtle pulse to the WhatsApp button */
-.whatsapp-link {
-  animation: pulseBtn 2.2s infinite;
-}
-@keyframes pulseBtn {
-  0% {
-    box-shadow: 0 0 0 0 #25d36644;
-  }
-  70% {
-    box-shadow: 0 0 0 10px #25d36611;
-  }
-  100% {
-    box-shadow: 0 0 0 0 #25d36644;
-  }
-}
-
-/* Tooltip for close button */
+/* Tooltips */
 .close-btn::after,
 .modal-close::after {
   content: attr(title);
@@ -474,19 +374,128 @@ button:focus,
 }
 
 .close-btn:hover::after,
-.close-btn:focus::after,
-.modal-close:hover::after,
-.modal-close:focus::after {
+.modal-close:hover::after {
   opacity: 1;
 }
 
-/* Add subtle divider between cards */
-.card + .card {
-  border-top: 1px solid #e6eaf1;
-  margin-top: 0;
+/* Accessibility */
+a:focus,
+button:focus,
+.modal-close:focus,
+.yes-btn:focus,
+.no-btn:focus,
+.whatsapp-link:focus {
+  outline: 2px solid #219150;
+  outline-offset: 2px;
+}
+/* 📱 Small Tablets and Landscape Phones (max-width: 820px) */
+@media (max-width: 820px) {
+  body {
+    padding: 1rem 1.2rem;
+  }
+
+  .card,
+  .modal {
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 96vw;
+  }
+
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 1.15rem;
+  }
+
+  .review-row {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .review-row p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .yes-btn,
+  .no-btn,
+  .whatsapp-link {
+    width: 90%;
+    max-width: 320px;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+  }
+
+  .modal-close,
+  .close-btn {
+    font-size: 1.5rem;
+    top: 10px;
+    right: 12px;
+  }
 }
 
-/* Add fade-in for review actions */
-.review-actions {
-  animation: fadeIn 0.7s 0.2s backwards;
+/* 📱 Mobiles (max-width: 430px) */
+@media (max-width: 430px) {
+  html,
+  body {
+    padding: 0.5rem;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  .card,
+  .modal {
+    padding: 1rem;
+    width: 100%;
+    max-width: 96vw;
+    margin: 1rem 0;
+  }
+
+  .review-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .review-row p {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+    width: 100%;
+  }
+
+  .yes-btn,
+  .no-btn,
+  .whatsapp-link {
+    font-size: 1rem;
+    padding: 10px 20px;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  #reviewForm label {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  #reviewForm input[type="radio"] {
+    transform: scale(1.1);
+  }
+
+  .modal-close,
+  .close-btn {
+    font-size: 1.4rem;
+    top: 8px;
+    right: 10px;
+  }
 }

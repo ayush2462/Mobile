@@ -34,7 +34,7 @@ function exportToExcel($pdo, $filename = 'excel/data.xlsx')
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['excel_file'])) {
     // Save uploaded file in 'excel' folder
     if (!is_dir('excel')) {
-        mkdir('excel', 0777, true);
+        mkdir('excel', 0666, true);
     }
     $uploadedFileName = $_FILES['excel_file']['tmp_name'];
 

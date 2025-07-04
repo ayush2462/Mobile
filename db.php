@@ -1,4 +1,9 @@
 <?php
+//$host = 'localhost';
+//$db   = 'u807377921_mobile_checker';
+//$user = 'u807377921_root';
+//$pass = 'O#q5y[Rf';
+//$charset = 'utf8mb4';
 $host = 'localhost';
 $db   = 'mobile_checker';
 $user = 'root';

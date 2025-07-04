@@ -1,4 +1,16 @@
-/* General Reset and Base Styles */
+/* Root Variables */
+:root {
+  --primary: #2563eb;
+  --accent: #38bdf8;
+  --bg: #f7fafd;
+  --text: #1e293b;
+  --muted: #64748b;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --radius: 1rem;
+  --font: "Inter", "Segoe UI", sans-serif;
+}
+
+/* Reset & Base */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,281 +18,171 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  color: #333;
-  padding: 30px 15px;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* Form Container */
+.status-form-container {
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 480px;
+  width: 100%;
+  animation: fadeIn 0.5s ease-in-out;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
 }
 
-/* Header */
-h1 {
-  color: #fff;
-  margin-bottom: 30px;
+.status-form-container h2 {
   text-align: center;
-  font-size: 2.2rem;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: var(--primary);
 }
 
-/* Cards */
-.card {
-  background: #fff;
-  padding: 25px 30px;
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  width: 100%;
-  max-width: 600px;
-  margin-bottom: 25px;
-  position: relative;
-  animation: fadeInUp 0.6s ease;
-  font-size: 1.1rem;
-  transition: transform 0.3s ease;
+.status-form-container h2 i {
+  margin-right: 0.5rem;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-}
-
-/* Close Button */
-.close-btn {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  font-size: 24px;
-  text-decoration: none;
-  color: #aaa;
-  transition: color 0.3s;
-}
-
-.close-btn:hover {
-  color: #000;
-}
-
-/* Status Tags */
-.status-trusted {
-  background: #28a745;
-  color: #fff;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-weight: bold;
-  display: inline-block;
-}
-
-.status-fraud {
-  background: #dc3545;
-  color: #fff;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-weight: bold;
-  display: inline-block;
-}
-
-.status-blacklisted {
-  background: #343a40;
-  color: #fff;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-weight: bold;
-  display: inline-block;
-}
-
-.status-unknown {
-  background: #6c757d;
-  color: #fff;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-weight: bold;
-  display: inline-block;
-}
-
-/* Blinking tag */
-.status-blink {
-  animation: blink 1.5s linear infinite;
-}
-@keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0.4; }
-  100% { opacity: 1; }
-}
-
-/* Review Summary (Horizontal Layout) */
-.card h3 {
-  margin-bottom: 15px;
-  font-size: 1.4rem;
-}
-
-.card p {
-  font-size: 1.1rem;
-  margin: 5px 0;
-}
-
-.card p strong {
-  font-size: 1.3rem;
-  color: #000;
-}
-
-.card:nth-of-type(2) {
+/* Form Styling */
+form {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
   align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-/* Review Prompt */
-.review-actions {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.review-actions h3 {
-  color: #fff;
-  margin-bottom: 20px;
-  font-size: 1.5rem;
-}
-
-/* Buttons */
-.yes-btn,
-.no-btn,
-.whatsapp-link {
-  padding: 12px 25px;
   font-size: 1rem;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  margin: 10px;
-  transition: all 0.3s ease;
-  font-weight: bold;
+  font-weight: 600;
+  color: var(--text);
+  gap: 0.6rem;
 }
 
-.yes-btn {
-  background-color: #38a169;
-  color: white;
+input[type="text"] {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
 }
 
-.no-btn {
-  background-color: #e53e3e;
-  color: white;
+input[type="text"]:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
 }
 
-.yes-btn:hover {
-  background-color: #2f855a;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.no-btn:hover {
-  background-color: #c53030;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-/* Modal */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  justify-content: center;
-  align-items: center;
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-.modal {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  max-width: 500px;
-  width: 90%;
-  animation: scaleIn 0.3s ease-in-out;
-  font-size: 1.1rem;
-  text-align: center;
-}
-
-.modal h3 {
-  margin-bottom: 20px;
-  color: #1a202c;
-  font-size: 1.5rem;
-}
-
-.modal-close {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 24px;
-  cursor: pointer;
-  color: #666;
-  transition: color 0.3s ease;
-}
-
-.modal-close:hover {
-  color: #000;
-}
-
-.modal form label {
-  display: inline-flex;
-  align-items: center;
-  margin: 0 15px;
-  cursor: pointer;
-}
-
-.modal input[type="radio"] {
-  margin-right: 8px;
-  transform: scale(1.2);
-}
-
-/* WhatsApp Button */
-.whatsapp-link {
-  background-color: #25d366;
+/* Submit Button */
+button[type="submit"] {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
   color: #fff;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: var(--radius);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: transform 0.2s ease, background 0.3s ease;
 }
 
-.whatsapp-link:hover {
-  background-color: #1ebe5d;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+button[type="submit"]:hover {
+  transform: scale(1.03);
+  background: linear-gradient(90deg, var(--accent), var(--primary));
 }
 
-/* Animations */
-@keyframes fadeInUp {
-  0% { transform: translateY(20px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
-}
-
+/* Fade-in Animation */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-@keyframes scaleIn {
-  0% { transform: scale(0.9); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+/* ----------------------------------------- */
+/* Responsive Design Breakpoints */
+/* ----------------------------------------- */
+
+@media (max-width: 1024px) {
+  .status-form-container {
+    padding: 2.2rem 1.8rem;
+  }
 }
 
-/* Responsive Adjustments */
-@media screen and (max-width: 600px) {
-  .card {
-    padding: 20px;
-    font-size: 1rem;
+@media (max-width: 768px) {
+  .status-form-container {
+    padding: 2rem 1.5rem;
+    max-width: 95%;
   }
 
-  .card:nth-of-type(2) {
-    flex-direction: column;
-    text-align: center;
+  .status-form-container h2 {
+    font-size: 1.6rem;
   }
 
-  .modal {
-    padding: 20px;
+  input[type="text"],
+  button[type="submit"] {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    padding: 1.5rem;
   }
 
-  .modal form label {
-    margin-bottom: 10px;
+  .status-form-container {
+    padding: 1.8rem 1rem;
   }
 
-  .yes-btn,
-  .no-btn {
-    width: 100%;
-    margin: 8px 0;
+  .status-form-container h2 {
+    font-size: 1.4rem;
+  }
+
+  .form-group {
+    font-size: 0.95rem;
+    gap: 0.4rem;
+  }
+
+  input[type="text"] {
+    padding: 0.8rem;
+  }
+
+  button[type="submit"] {
+    font-size: 0.9rem;
+    padding: 0.9rem 1.2rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .status-form-container h2 {
+    font-size: 1.2rem;
+  }
+
+  input[type="text"] {
+    padding: 0.7rem;
+    font-size: 0.85rem;
+  }
+
+  button[type="submit"] {
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
   }
 }
