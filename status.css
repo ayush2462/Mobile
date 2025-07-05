@@ -1,0 +1,267 @@
+:root {
+  --primary: #2563eb;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --warning: #f59e0b;
+  --neutral: #6b7280;
+  --bg: #f3f4f6;
+  --white: #ffffff;
+  --text: #1f2937;
+  --radius: 12px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --font: 'Inter', 'Segoe UI', sans-serif;
+}
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 1rem;
+}
+
+/* Headings */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--primary);
+}
+
+h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* Card */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2rem;
+  margin-bottom: 1.8rem;
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 640px;
+  position: relative;
+  text-align: left;
+}
+
+.card div {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--neutral);
+}
+
+.close-btn:hover {
+  color: var(--danger);
+}
+
+/* Status */
+.status-blink {
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  font-weight: 600;
+  animation: blink 1s infinite alternate;
+  display: inline-block;
+  font-size: 1.1rem;
+}
+
+.status-trusted {
+  background: #ecfdf5;
+  color: var(--success);
+}
+
+.status-fraud {
+  background: #fef2f2;
+  color: var(--danger);
+}
+
+.status-blacklisted {
+  background: #fff7ed;
+  color: var(--warning);
+}
+
+.status-unknown {
+  background: #f3f4f6;
+  color: var(--neutral);
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+/* Review Row */
+.review-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.review-row p {
+  flex: 1 1 160px;
+  padding: 0.9rem 1.2rem;
+  background: #e5e7eb;
+  border-radius: 10px;
+  font-weight: 500;
+  text-align: center;
+  font-size: 1.05rem;
+}
+
+/* Review Actions */
+.review-actions {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.review-actions button {
+  margin: 0.6rem;
+}
+
+/* Buttons */
+.yes-btn, .no-btn, .whatsapp-link {
+  background: var(--primary);
+  color: white;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.no-btn {
+  background: var(--danger);
+}
+
+.whatsapp-link {
+  background: #25d366;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 1.2rem;
+  display: inline-block;
+}
+
+.yes-btn:hover { background: #1e40af; }
+.no-btn:hover { background: #b91c1c; }
+.whatsapp-link:hover { background: #128c7e; }
+
+/* Modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius);
+  width: 92%;
+  max-width: 420px;
+  box-shadow: var(--shadow);
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 1.5rem;
+  color: #888;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: var(--danger);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Review Form */
+#reviewForm label {
+  font-size: 1.05rem;
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+#reviewForm input[type="radio"] {
+  margin-right: 0.6rem;
+  transform: scale(1.1);
+}
+
+/* ========== Responsive Breakpoints ========== */
+
+/* Tablets */
+@media (max-width: 768px) {
+  html, body {
+    padding: 1.5rem 1rem;
+  }
+
+  h1 { font-size: 1.8rem; }
+  .card { padding: 1.6rem; }
+  .review-row { flex-direction: column; gap: 1rem; }
+}
+
+/* Large Mobile */
+@media (max-width: 425px) {
+  h1 { font-size: 1.6rem; }
+  .card { padding: 1.4rem; }
+  .review-row p { font-size: 1rem; }
+  .review-actions button {
+    width: 100%;
+    font-size: 1.05rem;
+  }
+}
+
+/* Medium Mobile */
+@media (max-width: 375px) {
+  h1 { font-size: 1.45rem; }
+  .card { padding: 1.3rem; }
+  .status-blink { font-size: 1rem; }
+  .review-row p { font-size: 0.95rem; }
+  button, .whatsapp-link { font-size: 1rem; padding: 0.9rem 1.2rem; }
+}
+
+/* Small Mobile */
+@media (max-width: 320px) {
+  html, body {
+    padding: 1rem;
+  }
+
+  h1 { font-size: 1.3rem; }
+  .card { padding: 1rem; }
+  .status-blink { font-size: 0.9rem; }
+  .review-row p { font-size: 0.9rem; }
+  #reviewForm label { font-size: 0.95rem; }
+  .modal { padding: 1rem; }
+}
